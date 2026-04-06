@@ -1678,7 +1678,7 @@ function checkScreenSize() {
   const warning = document.querySelector(".screen-warning");
   if (!warning) return;
 
-  if (window.innerWidth < 1400) {
+  if (window.innerWidth < 1100) {
     warning.style.display = "flex";
   } else {
     warning.style.display = "none";
