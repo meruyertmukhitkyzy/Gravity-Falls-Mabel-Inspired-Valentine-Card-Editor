@@ -739,7 +739,10 @@ function renderInlineTagEditor(item, layout) {
       const offsetX = item.anchorOffsetX || 0;
       const offsetY = item.anchorOffsetY || 0;
 
-      object.style.transform = `translate(${item.x + offsetX}px, ${item.y + offsetY}px) translate(-50%, -50%) rotate(${item.rotation}deg)`;
+      const FIX_X = 40;
+      const FIX_Y = 20;
+
+      object.style.transform = `translate(${item.x + offsetX + FIX_X}px, ${item.y + offsetY + FIX_Y}px) translate(-50%, -50%) rotate(${item.rotation}deg)`;
 
       if (item.type === "main") {
         const rotateHandleReach = 34 + 18; // handle offset + handle size
