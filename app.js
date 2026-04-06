@@ -1664,31 +1664,26 @@ async function init() {
   init();
 })();
 
-function scaleApp() {
-  const baseWidth = 1440;
-  const scale = Math.min(window.innerWidth / baseWidth, 1);
-
+function handleViewportChange() {
   const app = document.querySelector(".app-shell");
-  if (!app) return;
+  const warning = document.querySelector(".screen-warning");
+  if (!app || !warning) return;
+
+  const baseWidth = 1440;
+  const availableWidth = document.documentElement.clientWidth;
+  const scale = Math.min(availableWidth / baseWidth, 1);
 
   app.style.transform = `scale(${scale})`;
-}
 
-function checkScreenSize() {
-  const warning = document.querySelector(".screen-warning");
-  if (!warning) return;
-
-  if (window.innerWidth < 1700) {
+  if (availableWidth < 1100) {
     warning.style.display = "flex";
   } else {
     warning.style.display = "none";
   }
 }
 
-function handleViewportChange() {
-  scaleApp();
-  checkScreenSize();
-}
+window.addEventListener("resize", handleViewportChange);
+window.addEventListener("load", handleViewportChange);
 
 window.addEventListener("resize", handleViewportChange);
 window.addEventListener("load", handleViewportChange);
