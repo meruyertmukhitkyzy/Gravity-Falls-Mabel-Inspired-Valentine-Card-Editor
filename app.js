@@ -739,7 +739,7 @@ function renderInlineTagEditor(item, layout) {
       const offsetX = item.anchorOffsetX || 0;
       const offsetY = item.anchorOffsetY || 0;
 
-      const FIX_X = 40;
+      const FIX_X = 55;
       const FIX_Y = 20;
 
       object.style.transform = `translate(${item.x + offsetX + FIX_X}px, ${item.y + offsetY + FIX_Y}px) translate(-50%, -50%) rotate(${item.rotation}deg)`;
